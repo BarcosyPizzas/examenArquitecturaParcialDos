@@ -1,6 +1,8 @@
-# examenArquitecturaParcialDos
-Examen de arquitectura segundo parcial
+# Respuestas examen segundo parcial.
+Examen de arquitectura segundo parcial.
 
 [Sección Uno](SeccionUno.md)
+
+
 
 
