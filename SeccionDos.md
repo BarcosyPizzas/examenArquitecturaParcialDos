@@ -83,7 +83,15 @@ Muestra tres ejemplos de uso con distintas combinaciones de atributos opcionales
 
 
 SolicitudPrestamoBuilder s1 = new SolicitudPrestamoBuilder().setEstudiante(“Pedro”).setFechaDevolucion(“1-10-2027”).setLibro(“El mundo del Rubius”).construir();
+
 SolicitudPrestamoBuilder s2 = new SolicitudPrestamoBuilder().setEstudiante(“Pepe”).setFechaDevolucion(“11-05-2026”).setLibro(“Elders Game”).setRenovacionAutomatica(true).construir();
+
 SolicitudPrestamoBuilder s3 = new SolicitudPrestamoBuilder().setEstudiante(“Anuel”).setFechaDevolucion(“6-16-2026”).setLibro(“Los Juegos del Hambre”).setNumRenovaciones(2).setNotasEspeciales(“Gracias por prestarme el libro querido CETYS university”).construir();
+
 Reflexión: ¿por qué conviene que SolicitudPrestamo sea inmutable una vez construida? ¿Qué problemas evitamos? Porque así luego no batallamos con que el cliente cambie características que no deberían de poder ser modificables y que están sujetas a nuestras reglas de negocio.
+
+<image here>
+
+
+[Link al Codigo Builder](/java/SolicitudPrestamo.java)
 
