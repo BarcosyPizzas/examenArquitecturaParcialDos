@@ -12,7 +12,7 @@ El constructor se hace privado y get Instance un metodo estatico público, si la
 
 [Link al Codigo](java/AuditoriaLogger.java)
 
-<image here>
+![Singleton](imagenes/uml/Singleton.png)
 
 **Pregunta 2B — Factory · Creación de usuarios**
 El sistema debe crear objetos de tipo Usuario (Estudiante, Bibliotecario, Admin) sin que el código cliente conozca las clases concretas. Implementa una FabricaDeUsuarios y:
@@ -25,6 +25,8 @@ Muestra cómo agregar el tipo Posgrado en el futuro sin modificar el código exi
 [Clase Administrador](/java/Administrador.java)
 [Clase Estudiante](/java/Estudiante.java)
 [Clase Bibliotecario](/java/Bibliotecario.java)
+
+![Factory Imagen](imagenes/uml/Factory.png)
 
 **Pregunta 2C — Adapter · Integración con el Catálogo CETYS**
 El sistema interno espera una interfaz CatalogoBiblioteca con el método:
@@ -43,7 +45,7 @@ Reflexión: si mañana CETYS cambia de proveedor de catálogo a uno con una inte
 [Link a Libro](/java/Libro.java)
 [Link a CatalogoBiblioteca](/java/CatalogoBiblioteca.java)
 
-<image here>
+![Adapter Imagen](imagenes/uml/Adapter.png)
 
 **Pregunta 2D — Builder · Solicitudes de préstamo**
 Una SolicitudPrestamo tiene los siguientes atributos:
@@ -90,8 +92,7 @@ SolicitudPrestamoBuilder s3 = new SolicitudPrestamoBuilder().setEstudiante(“An
 
 Reflexión: ¿por qué conviene que SolicitudPrestamo sea inmutable una vez construida? ¿Qué problemas evitamos? Porque así luego no batallamos con que el cliente cambie características que no deberían de poder ser modificables y que están sujetas a nuestras reglas de negocio.
 
-<image here>
-
+![Builder Imagen](imagenes/uml/Builder.png)
 
 [Link al Codigo Builder](/java/SolicitudPrestamo.java)
 
