@@ -9,7 +9,55 @@ Todos los actores humanos con sus roles.
 Los tres sistemas externos. Indica la dirección y el propósito de cada relación.
 Usa notación C4 clara: rectángulos etiquetados con nombre, tipo y descripción breve.
 
-<imagen here>
+Codigo Structurizr
+workspace "CETYS Biblioteca" "Sistema de gestión de préstamos, reservas y multas" {
+
+  model {
+    estudiante = person "Estudiante" "Consulta libros, solicita préstamos, hace reservas y paga multas"
+    bibliotecario = person "Bibliotecario" "Gestiona préstamos, devoluciones y disponibilidad de salas"
+    admin = person "Administrador" "Administra usuarios, multas y configuración del sistema"
+    bancario = softwareSystem "Sistema de Pagos Bancario" "Procesa cobros de fianzas y multas vía REST" "External"
+
+    catalogoCETYS = softwareSystem "Catálogo CETYS" "Expone información de libros disponibles vía SOAP" "External"
+    directorio = softwareSystem "Directorio Estudiantil Institucional" "Autenticación y datos de alumnos vía LDAP" "External"
+
+    biblioteca = softwareSystem "Sistema de Biblioteca CETYS" "Gestiona préstamos de libros, reservas de salas de estudio y multas a estudiantes"
+
+    estudiante -> biblioteca "Consulta libros, solicita préstamos y reservas, paga multas"
+    bibliotecario -> biblioteca "Gestiona préstamos, devoluciones y salas"
+    admin -> biblioteca "Administra usuarios, reportes y configuración"
+    bancario -> biblioteca "Confirma pagos procesados"
+
+    biblioteca -> catalogoCETYS "Consulta disponibilidad y datos de libros" "SOAP"
+    biblioteca -> bancario "Solicita cobro de fianzas y multas" "REST"
+    biblioteca -> directorio "Autentica usuarios y obtiene datos de alumnos" "LDAP"
+  }
+
+  views {
+    systemContext biblioteca "Contexto" {
+      include *
+      autoLayout
+    }
+
+    styles {
+      element "Person" {
+        shape Person
+        background #1168BD
+        color #ffffff
+      }
+      element "Software System" {
+        background #1168BD
+        color #ffffff
+      }
+      element "External" {
+        background #999999
+        color #ffffff
+      }
+    }
+  }
+}
+
+![Imagen de C4](imagenes/structurizr/C4.png)
 
 Pregunta 1B — Diagrama de contenedores
 
