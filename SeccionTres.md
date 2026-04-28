@@ -15,7 +15,8 @@ Identifica qué principios SOLID viola esta clase y explica por qué en cada cas
 Propón una refactorización: divide la clase en las entidades correctas. Dibuja el diagrama de clases resultante.
 ¿Cómo se relaciona esta refactorización con la Dependency Rule de Clean Architecture? Podemos inyectar la instancia singleton del logger para poder registrar cada operacion que el logger ejecute evitando crear multiples instancias del logger, ademas de que podemos inyectar herramientas que ocupen los servicios sin necesidad de crearlos en la clase, evitando esa responsabilidad.
 
-<image here>
+
+![Refactor](imagenes/uml/Refactor1.png)
 
 **Pregunta 3B — Diseño de la capa de Use Cases**
 Siguiendo Clean Architecture, el caso de uso "Registrar préstamo" debe ser independiente de la base de datos y del framework web.
@@ -24,5 +25,5 @@ Implementa la clase RegistrarPrestamoUseCase que use esa interfaz (no la impleme
 Explica cómo la Dependency Rule garantiza que cambiar de MySQL a MongoDB no requiere tocar el use case. No se necesita cambiar el use case porque el use case solamente utiliza la interfaz que representa la conexión a la base de datos general, pero al momento de inyectar dicha base de datos se ocupa que la implementación concreta cumpla con los métodos de la interfaz, por lo que con la inyección de dependencia funciona sin problemas.
 ¿Qué patrón de los estudiados en clase aparece implícitamente en este diseño? DI, dependency injection e IoC(Inversion de control)
 
-<image here>
+![UseCase Imagen](imagenes/uml/UseCase.png)
 
